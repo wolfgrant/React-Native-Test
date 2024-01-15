@@ -1,4 +1,5 @@
 import { View, FlatList, Button } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react'
 import global from './styles/global-style'
 import GoalItem from './components/goal-item';
@@ -67,8 +68,10 @@ export default function App() {
   } */
 
   return (
+    <>
+    <StatusBar style='light'/>
     <View style={globalStyles.appContainer}>
-      <Button title='Agregar nuevo logro' color="#5e0acc" onPress={startAddGoalHandler}/>
+      <Button title='Agregar nuevo logro' color="#a065ec" onPress={startAddGoalHandler}/>
       
       {/* Aqui solo estoy probando como hacer condicionales con ese estado de modalIsVisible */}
       {/* {modalIsVisible && <GoalForm onAddGoal={addGoalHandler} />} */}
@@ -98,6 +101,7 @@ export default function App() {
         {/* </ScrollView> */}
       </View>
     </View>
+    </>
   );
 }
 
