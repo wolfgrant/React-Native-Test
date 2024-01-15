@@ -24,8 +24,9 @@ function GoalForm(props) {
         style={globalStyles.formContainer.textInput}
         placeholder="Tu logro!"
         onChangeText={goalInputHandler}
+        value={goalText}
       />
-      <Button title="Agregar logro" onPress={addGoalHandler} />
+      <Button title="Agregar logro" color={'#5e0acc'} onPress={addGoalHandler} />
     </View>
   );
 }

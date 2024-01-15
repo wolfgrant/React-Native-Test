@@ -38,16 +38,30 @@ export default function App() {
 
   };
 
+  //Esto es si se quiere eliminar el dato por medio del index
+  /* function deleteItem(index){ */
+
+  //Si se quiere eliminar por medio de un filter con respecto a un dato que exista, se hace así
+  function deleteItem(id) {
+    //Esto es si se quiere eliminar el dato por medio del index
+    /* setCourseGoals(currentCourseGoal => [...currentCourseGoal.slice(0, index)]); */
+
+    //Si se quiere eliminar por medio de un filter con respecto a un dato que exista, se hace así
+    setCourseGoals(currentCourseGoal => {
+      return currentCourseGoal.filter((goal) => goal.id !== id);
+    });
+  }
+
   /* addGoal = () => {
     console.log('sadas')
   } */
 
   return (
     <View style={globalStyles.appContainer}>
-      <GoalForm onAddGoal={addGoalHandler}/>
+      <GoalForm onAddGoal={addGoalHandler} />
       <View style={globalStyles.goalsContainer}>
         <FlatList data={courseGoals} renderItem={(itemData) => {
-          return <GoalItem text={itemData.item.text}/>
+          return <GoalItem text={itemData.item.text} id={itemData.item.id} index={itemData.index} deleteGoalItem={deleteItem} />
           //Se puede crear un componente comun y corriente directamente en el return o se puede crear un componente aparte como lo es el GoalItem
           /* return (
             

@@ -30,6 +30,8 @@ const global = StyleSheet.create({
             borderRadius: 6,
             backgroundColor: '#5e0acc',
             padding: 8,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
             goalText: {
                 color: 'white',
             }
