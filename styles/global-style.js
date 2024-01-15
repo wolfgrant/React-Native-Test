@@ -8,19 +8,26 @@ const global = StyleSheet.create({
     },
     formContainer: {
         flex: 1,
-        flexDirection: 'row',
         marginBottom: 24,
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         borderBottomWidth: 1,
         borderBottomColor: '#cccccc',
+        padding: 16,
         textInput: {
             borderWidth: 1,
             borderColor: '#cccccc',
-            flex: 2,
-            marginRight: 8,
+            width: '100%',
             padding: 8,
         },
+        viewContainer: {
+            flexDirection: 'row',
+            marginTop: 8,
+            button: {
+                width: '40%',
+                marginHorizontal: 8,
+            }
+        }
     },
     
     goalsContainer: {

@@ -1,4 +1,4 @@
-import { View, Button, TextInput, FlatList } from 'react-native';
+import { View, FlatList, Button } from 'react-native';
 import { useState } from 'react'
 import global from './styles/global-style'
 import GoalItem from './components/goal-item';
@@ -6,7 +6,7 @@ import GoalForm from './components/goal-form';
 
 
 export default function App() {
-
+  const [modalIsVisible, setModalIsVisible] = useState(false)
   const globalStyles = global
 
   //Si la entrada de texto está en el mismo componente como lo sería App.js, quedaría de esta forma
@@ -35,6 +35,8 @@ export default function App() {
       //Es es para el scrollView
       /* goalText, */
     ]);
+    //Se puede colocar el cambio de estado del modal en este método o en directamente en el componente GoalForm
+    /* closeAddGoalHandler() */
 
   };
 
@@ -52,13 +54,25 @@ export default function App() {
     });
   }
 
+  function startAddGoalHandler () {
+    setModalIsVisible(true);
+  }
+
+  function closeAddGoalHandler () {
+    setModalIsVisible(false);
+  }
+
   /* addGoal = () => {
     console.log('sadas')
   } */
 
   return (
     <View style={globalStyles.appContainer}>
-      <GoalForm onAddGoal={addGoalHandler} />
+      <Button title='Agregar nuevo logro' color="#5e0acc" onPress={startAddGoalHandler}/>
+      
+      {/* Aqui solo estoy probando como hacer condicionales con ese estado de modalIsVisible */}
+      {/* {modalIsVisible && <GoalForm onAddGoal={addGoalHandler} />} */}
+      <GoalForm onAddGoal={addGoalHandler} visible={modalIsVisible} onCloseModal={closeAddGoalHandler}/>
       <View style={globalStyles.goalsContainer}>
         <FlatList data={courseGoals} renderItem={(itemData) => {
           return <GoalItem text={itemData.item.text} id={itemData.item.id} index={itemData.index} deleteGoalItem={deleteItem} />

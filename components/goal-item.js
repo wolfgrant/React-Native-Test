@@ -1,5 +1,5 @@
 import global from '../styles/global-style'
-import { Text, View, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Pressable } from 'react-native';
 import PropTypes from 'prop-types';
 import { Icon } from 'react-native-elements'
 
@@ -17,7 +17,8 @@ function GoalItem(props) {
         console.log(props.id)
     }
     return (
-        <Pressable android_ripple={{ color: '#dddddd' }} onPress={presseable}>
+        //Cabe mencionar que el Aandroid_ripple solo funciona en android, para hacerlo en iOS se usó el style con el pressed haciendo referencia a cuando es presionado
+        <Pressable android_ripple={{ color: '#210644' }} onPress={presseable} style={({pressed}) => pressed && styles.pressedItem}>
             <View style={globalStyles.goalsContainer.goalItem}>
                 <Text style={globalStyles.goalsContainer.goalItem.goalText} >{props.text}</Text>
                 <Icon
@@ -42,3 +43,9 @@ GoalItem.propTypes = {
 };
 
 export default GoalItem;
+
+const styles = StyleSheet.create({
+    pressedItem: {
+        opacity: 0.5,
+    }
+})
