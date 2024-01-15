@@ -17,10 +17,11 @@ function GoalItem(props) {
         console.log(props.id)
     }
     return (
-        <Pressable onPress={presseable}>
+        <Pressable android_ripple={{ color: '#dddddd' }} onPress={presseable}>
             <View style={globalStyles.goalsContainer.goalItem}>
                 <Text style={globalStyles.goalsContainer.goalItem.goalText} >{props.text}</Text>
                 <Icon
+                containerStyle={{backgroundColor: 'rgba(228, 223, 225, 0.33)', width: 30, height: 30, justifyContent: 'center', borderRadius: 50 }}
                     name='trash'
                     type='font-awesome'
                     color='white'

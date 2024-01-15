@@ -27,6 +27,8 @@ function GoalForm(props) {
         value={goalText}
       />
       <Button title="Agregar logro" color={'#5e0acc'} onPress={addGoalHandler} />
+      {/* Otra forma de hacer el onPress con una función en el padre es la que se va a mostrar pero aun no sé limpiar el input ejecutando una función desde el app js jajajaja */}
+      {/* <Button title="Agregar logro" color={'#5e0acc'} onPress={props.onAddGoal.bind(this, goalText)} /> */}
     </View>
   );
 }
