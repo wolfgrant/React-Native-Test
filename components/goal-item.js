@@ -8,10 +8,10 @@ const globalStyles = global;
 
 function GoalItem(props) {
 
-    function deleteItem() {
-        //Esto si se quiere elminar por el index
+    //Esto si se quiere elminar por el index
+    /* function deleteItem() {
         props.deleteGoalItem(props.index)
-    }
+    } */
 
     function presseable() {
         console.log(props.id)
@@ -37,7 +37,7 @@ function GoalItem(props) {
 
 GoalItem.propTypes = {
     text: PropTypes.string, // No es necesario añadir .isRequired aquí siempre y cuando esa propiedad no sea requerida
-    index: PropTypes.number,
+    /* index: PropTypes.number, */
     id: PropTypes.string,
     deleteGoalItem: PropTypes.func.isRequired,
 };
